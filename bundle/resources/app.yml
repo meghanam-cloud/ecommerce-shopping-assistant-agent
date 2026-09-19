@@ -1,0 +1,21 @@
+resources:
+  apps:
+    ecom_agent_app:
+      name: "ecom-agent-app"
+      description: "E-commerce shopping assistant chat app"
+      source_code_path: ..
+      resources:
+        - name: "sql-warehouse"
+          sql_warehouse:
+            id: ${var.warehouse_id}
+            permission: CAN_USE
+      config:
+        command:
+          - "streamlit"
+          - "run"
+          - "src/app/app.py"
+        env:
+          - name: "CONFIG_PATH"
+            value: "config/config.yaml"
+          - name: "PYTHONPATH"
+            value: "/app/python/source_code"

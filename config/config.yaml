@@ -1,0 +1,55 @@
+app:
+  name: "ecom_agent_app"
+  environment: "prod"
+databricks:
+  host: "https://dbc-7cfbce15-a57e.cloud.databricks.com"
+  warehouse_id: "b00a6e4b42b6812a"
+secrets:
+  scope: "dbx-secret-scope"
+  keys:
+    langfuse_public_key: "LANGFUSE_PUBLIC_KEY"
+    langfuse_secret_key: "LANGFUSE_SECRET_KEY"
+    langfuse_host: "LANGFUSE_HOST"
+    databricks_token: "DATABRICKS_TOKEN"
+data:
+  catalog: "ai_projects_catalog"
+  schema: "agent_demo"
+  table: "ecom_products_tbl"
+  columns:
+    id: "product_id"
+    brand: "title"
+    description: "product_description"
+    rating: "rating"
+    ratings_count: "ratings_count"
+    initial_price: "initial_price"
+    discount: "discount"
+    final_price: "final_price"
+    currency: "currency"
+    delivery_options: "delivery_options"
+    details: "product_details"
+    specifications: "product_specifications"
+    rating_breakdown: "amount_of_rating"
+    sizes: "sizes"
+    offers: "all_offers"
+    category: "category"
+llm:
+  endpoint_name: "databricks-meta-llama-3-3-70b-instruct"
+  temperature: 0.2
+  max_tokens: 800
+memory:
+  catalog: "ai_projects_catalog"
+  schema: "agent_demo"
+  short_term_table: "ecom_chat_short_term_memory"
+  long_term_table: "ecom_chat_long_term_memory"
+  short_term_turns_limit: 20
+guardrails:
+  pii_check: true
+  prompt_injection_check: true
+  topical_scope_check: true
+  allowed_topics_keywords: [product, order, price, delivery, return, size, recommend, compare, discount, rating, shipping, backpack, stock]
+mlflow:
+  experiment_path: "/Shared/ecom_agent_experiments"
+  prompt_registry_name: "ecom_agent_system_prompt"
+langfuse:
+  enabled: true
+#additional config can be added here
