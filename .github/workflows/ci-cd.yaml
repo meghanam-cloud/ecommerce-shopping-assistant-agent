@@ -133,7 +133,7 @@ jobs:
               "${DATABRICKS_HOST}/api/2.0/apps/ecom-agent-app" \
               -H "Authorization: Bearer ${DATABRICKS_TOKEN}" \
               -H "Content-Type: application/json" \
-              -d '{"git_repository": {"url": "https://github.com/JainMradul/ecommerce-shopping-assistant-agent.git", "provider": "gitHub"}}' \
+              -d '{"git_repository": {"url": "https://github.com/meghanam-cloud/ecommerce-shopping-assistant-agent.git", "provider": "gitHub"}}' \
               || echo "Warning: could not set git_repository (may already be set)"
 
             # Deploy from the prod branch — pulls latest code from GitHub
