@@ -2,8 +2,8 @@ app:
   name: "ecom_agent_app"
   environment: "prod"
 databricks:
-  host: "https://dbc-7cfbce15-a57e.cloud.databricks.com"
-  warehouse_id: "b00a6e4b42b6812a"
+  host: "https://dbc-dd80cadd-09e7.cloud.databricks.com"
+  warehouse_id: "0c9be5b0f1760a3e"
 secrets:
   scope: "dbx-secret-scope"
   keys:
